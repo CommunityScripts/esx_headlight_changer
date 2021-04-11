@@ -117,18 +117,16 @@ local location = {
     {x = -210.91, y = -1323.82, z = 30.89},
 }
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
+CreateThread(function()
+    while true do Wait(0)
         for k in pairs(location) do
             DrawMarker(20, location[k].x, location[k].y, location[k].z, 0, 0, 0, 0, 0, 0, 0.8, 0.8, 0.8, 255, 50, 255, 100, true, true, 2, true, false, false, false)
         end
     end
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
+CreateThread(function()
+    while true do Wait(0)
         for k in pairs(location) do
             local plyCoords = GetEntityCoords(GetPlayerPed(-1), false)
             local dist = Vdist(plyCoords.x, plyCoords.y, plyCoords.z, location[k].x, location[k].y, location[k].z)
